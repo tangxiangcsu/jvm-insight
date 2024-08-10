@@ -5,11 +5,11 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.ai
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.ai
  * @NAME: AiGenerateQuestionRequest
  * @USER: tangxiang
  * @DATE: 2024/7/29
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 @Data

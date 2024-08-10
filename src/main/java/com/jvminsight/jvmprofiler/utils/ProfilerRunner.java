@@ -6,11 +6,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.utils
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.utils
  * @NAME: ProfilerRunner
  * @USER: tangxiang
  * @DATE: 2024/8/3
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 @Slf4j

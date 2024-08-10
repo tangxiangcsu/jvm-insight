@@ -3,11 +3,11 @@ package com.jvminsight.jvmprofiler.exception;
 import com.jvminsight.jvmprofiler.common.ErrorCode;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.exception
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.exception
  * @NAME: JVMException
  * @USER: tangxiang
  * @DATE: 2024/7/29
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public class JVMException extends RuntimeException{

@@ -9,8 +9,8 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-boot.version>2.6.13</spring-boot.version>
     </properties>
-    <groupId>com.huaweicloud.jvmprofiler</groupId>
-    <artifactId>HuaweiCloud-JVM-Profiler</artifactId>
+    <groupId>com.jvminsight.jvmprofiler</groupId>
+    <artifactId>jvm-insight</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>

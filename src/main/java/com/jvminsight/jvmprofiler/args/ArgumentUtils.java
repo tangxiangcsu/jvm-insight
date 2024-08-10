@@ -5,11 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.args
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.args
  * @NAME: ArgumentUtils
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public class ArgumentUtils {

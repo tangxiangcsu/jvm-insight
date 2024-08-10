@@ -4,11 +4,11 @@ import com.jvminsight.jvmprofiler.constants.ProfilerConstants;
 import com.jvminsight.jvmprofiler.utils.ClassMethodArgumentMetricBuffer;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.profilers
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.profilers
  * @NAME: MethodArgumentCollector
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public class MethodArgumentCollector {

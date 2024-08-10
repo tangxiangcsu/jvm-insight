@@ -5,11 +5,11 @@ import lombok.Data;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.dto
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.dto
  * @NAME: Histogram
  * @USER: tangxiang
  * @DATE: 2024/7/31
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 @Data

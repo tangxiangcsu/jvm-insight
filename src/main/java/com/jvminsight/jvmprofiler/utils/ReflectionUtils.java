@@ -7,11 +7,11 @@ import lombok.extern.slf4j.Slf4j;
 import java.lang.reflect.Constructor;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.utils
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.utils
  * @NAME: ReflectionUtils
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 反射工具
  **/
 @Slf4j

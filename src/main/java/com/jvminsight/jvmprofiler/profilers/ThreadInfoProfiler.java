@@ -13,11 +13,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.profilers
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.profilers
  * @NAME: ThreadInfoProfiler
  * @USER: tangxiang
  * @DATE: 2024/7/31
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: JVM线程分析器，包括总线程数、峰值线程数、实时/活动线程数和新线程数。
  **/
 @Slf4j

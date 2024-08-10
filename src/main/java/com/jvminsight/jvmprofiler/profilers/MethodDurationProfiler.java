@@ -11,11 +11,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.profilers
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.profilers
  * @NAME: MethodDurationProfiler
  * @USER: tangxiang
  * @DATE: 2024/7/31
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 方法耗时采集，在方法前置和后置嵌入采集耗时的代码
  **/
 @Data

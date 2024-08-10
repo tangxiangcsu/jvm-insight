@@ -5,11 +5,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.utils
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.utils
  * @NAME: StacktraceMetricBuffer
  * @USER: tangxiang
  * @DATE: 2024/7/31
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public class StacktraceMetricBuffer {

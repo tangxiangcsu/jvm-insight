@@ -3,11 +3,11 @@ package com.jvminsight.jvmprofiler.dto;
 import lombok.Data;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.dto
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.dto
  * @NAME: ClassMethodArgument
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 @Data

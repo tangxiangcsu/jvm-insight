@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.dto
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.dto
  * @NAME: ProfilerGroup
  * @USER: tangxiang
  * @DATE: 2024/8/3
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 设置立即启动解析器 and 按计划启动解析器
  **/
 @Data

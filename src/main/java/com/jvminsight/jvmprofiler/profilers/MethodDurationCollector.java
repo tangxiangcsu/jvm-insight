@@ -3,11 +3,11 @@ package com.jvminsight.jvmprofiler.profilers;
 import com.jvminsight.jvmprofiler.utils.ClassAndMethodLongMetricBuffer;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.profilers
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.profilers
  * @NAME: MethodDurationCollector
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 方法持续时间收集器
  **/
 public class MethodDurationCollector {

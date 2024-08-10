@@ -4,11 +4,11 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.utils
+ * @PACKAGE_NAME: com.jvminsight.jvmprofiler.utils
  * @NAME: AgentThreadFactory
  * @USER: tangxiang
  * @DATE: 2024/8/2
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public class AgentThreadFactory implements ThreadFactory {

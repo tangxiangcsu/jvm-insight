@@ -17,11 +17,11 @@ import java.security.ProtectionDomain;
 import java.util.List;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.transformer
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.transformer
  * @NAME: JavaAgentFileTransformer
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 @Slf4j

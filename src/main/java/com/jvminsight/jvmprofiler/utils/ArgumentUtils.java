@@ -1,11 +1,11 @@
 package com.jvminsight.jvmprofiler.utils;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.utils
+ * @PACKAGE_NAME: com.jvminsight.jvmprofiler.utils
  * @NAME: ArgumentUtils
  * @USER: tangxiang
  * @DATE: 2024/7/30
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 import java.util.ArrayList;

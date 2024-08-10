@@ -10,11 +10,11 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.utils
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.utils
  * @NAME: ShutdownHookRunner
  * @USER: tangxiang
  * @DATE: 2024/8/3
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 关闭解析器的线程
  **/
 @Slf4j

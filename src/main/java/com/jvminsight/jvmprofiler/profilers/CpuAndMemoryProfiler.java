@@ -16,11 +16,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.profilers
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.profilers
  * @NAME: CpuAndMemoryProfiler
  * @USER: tangxiang
  * @DATE: 2024/7/28
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 采集核心方法都是由ManagementFactory提供的接口
  **/
 @Slf4j

@@ -1,11 +1,11 @@
 package com.jvminsight.jvmprofiler.common;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.common
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.common
  * @NAME: ErrorCode
  * @USER: tangxiang
  * @DATE: 2024/7/29
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 自定义错误码
  **/
 public enum ErrorCode {

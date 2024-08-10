@@ -4,11 +4,9 @@ import com.jvminsight.jvmprofiler.dto.ClassAndMethod;
 import com.jvminsight.jvmprofiler.dto.ClassMethodArgument;
 import com.jvminsight.jvmprofiler.dto.ProfilerGroup;
 import com.jvminsight.jvmprofiler.dto.StacktraceMetricBuffer;
-import com.huaweicloud.jvmprofiler.profilers.*;
 import com.jvminsight.jvmprofiler.reporter.Reporter;
 import com.jvminsight.jvmprofiler.transformer.ClassAndMethodProfilerStaticProxy;
 import com.jvminsight.jvmprofiler.transformer.JavaAgentFileTransformer;
-import com.huaweicloud.jvmprofiler.utils.*;
 import com.jvminsight.jvmprofiler.profilers.*;
 import com.jvminsight.jvmprofiler.utils.*;
 import lombok.extern.slf4j.Slf4j;
@@ -22,11 +20,11 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler
  * @NAME: AgentImpl
  * @USER: tangxiang
  * @DATE: 2024/7/31
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 根据参数来获得所对应的对象，创建Profiler，启动Profiler
  **/
 @Slf4j

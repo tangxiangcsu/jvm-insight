@@ -20,11 +20,11 @@ import java.util.Map;
 import static com.jvminsight.jvmprofiler.args.ArgumentConstants.*;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler
  * @NAME: Arguments
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 指定命令提供哪些参数
  **/
 @Slf4j

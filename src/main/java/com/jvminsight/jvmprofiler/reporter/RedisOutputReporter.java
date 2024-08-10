@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.reporter
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.reporter
  * @NAME: RedisOutputReporter
  * @USER: tangxiang
  * @DATE: 2024/7/30
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 

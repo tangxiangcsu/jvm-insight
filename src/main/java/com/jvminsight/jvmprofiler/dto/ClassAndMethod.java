@@ -5,11 +5,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.dto
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.dto
  * @NAME: ClassAndMethod
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 @Data

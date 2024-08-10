@@ -15,11 +15,11 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.profilers
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.profilers
  * @NAME: StackTraceProfiler
  * @USER: tangxiang
  * @DATE: 2024/7/31
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 通过JMX获取线程转储来收集堆栈跟踪，并将堆栈跟踪存储到给定的缓冲区
  **/
 @Data

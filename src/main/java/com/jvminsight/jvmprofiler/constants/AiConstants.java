@@ -1,15 +1,15 @@
 package com.jvminsight.jvmprofiler.constants;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.ai
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.ai
  * @NAME: AiConstants
  * @USER: tangxiang
  * @DATE: 2024/7/28
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: ai启动常量
  **/
 public interface AiConstants {
-    // region AI 生成题目功能
+    // region AI 生成优化意见功能
     String GENERATE_JVM_CPU_AND_MEMORY_OPTIMIZATION_SYSTEM_MESSAGE = "我有以下 JVM 运行时的 CPU 和内存使用数据，我想请你根据这些数据提供 JVM 存在问题和调优建议：\n" +
             "```\n" +
             "问题名称，\n" +

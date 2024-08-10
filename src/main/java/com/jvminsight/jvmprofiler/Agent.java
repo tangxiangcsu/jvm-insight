@@ -7,11 +7,11 @@ import com.jvminsight.jvmprofiler.args.Arguments;
 import java.lang.instrument.Instrumentation;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler
+ * @PACKAGE_NAME: com.jvminsight.jvmprofiler
  * @NAME: Agent
  * @USER: tangxiang
  * @DATE: 2024/7/28
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 服务启动代理,负责解析掺入的参数
  **/
 public final class Agent {

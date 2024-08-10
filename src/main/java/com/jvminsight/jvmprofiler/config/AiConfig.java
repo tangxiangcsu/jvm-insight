@@ -7,11 +7,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.config
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.config
  * @NAME: AiConfig
  * @USER: tangxiang
  * @DATE: 2024/7/28
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 智能化平台，将质谱的APi注册为Bean
  **/
 @Configuration

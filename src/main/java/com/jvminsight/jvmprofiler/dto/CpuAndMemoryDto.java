@@ -1,11 +1,11 @@
 package com.jvminsight.jvmprofiler.dto;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.DTO
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.DTO
  * @NAME: CpuAndMemoryDTO
  * @USER: tangxiang
  * @DATE: 2024/7/29
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 import lombok.AllArgsConstructor;

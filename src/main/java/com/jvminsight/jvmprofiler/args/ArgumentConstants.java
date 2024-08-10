@@ -1,11 +1,11 @@
 package com.jvminsight.jvmprofiler.args;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler
  * @NAME: ArgumentConstants
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public interface ArgumentConstants {

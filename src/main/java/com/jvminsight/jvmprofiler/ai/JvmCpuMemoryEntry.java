@@ -8,11 +8,11 @@ import java.io.Serializable;
 import java.util.UUID;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.ai
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.ai
  * @NAME: JvmCpuMemoryEntry
  * @USER: tangxiang
  * @DATE: 2024/7/29
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 @Data

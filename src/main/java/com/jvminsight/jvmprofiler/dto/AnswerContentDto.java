@@ -7,11 +7,11 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.ai
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.ai
  * @NAME: AnswerContentDTO
  * @USER: tangxiang
  * @DATE: 2024/7/29
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public class AnswerContentDto {

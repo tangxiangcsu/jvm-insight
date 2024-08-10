@@ -1,11 +1,11 @@
 package com.jvminsight.jvmprofiler.constants;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.profilers
+ * @PACKAGE_NAME: com.jvm-insight.jvmprofiler.profilers
  * @NAME: ProfilerConstants
  * @USER: tangxiang
  * @DATE: 2024/7/28
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public interface ProfilerConstants {

@@ -5,11 +5,11 @@ import com.jvminsight.jvmprofiler.dto.ClassAndMethod;
 import java.util.List;
 
 /**
- * @PACKAGE_NAME: com.huaweicloud.jvmprofiler.utils
+ * @PACKAGE_NAME: com.jvminsight.jvmprofiler.utils
  * @NAME: ClassAndMethodFilter
  * @USER: tangxiang
  * @DATE: 2024/8/1
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
+ * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
 public class ClassAndMethodFilter {
