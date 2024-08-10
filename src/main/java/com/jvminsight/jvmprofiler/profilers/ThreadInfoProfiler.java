@@ -5,7 +5,6 @@ import com.jvminsight.jvmprofiler.constants.ProfilerConstants;
 import com.jvminsight.jvmprofiler.exception.JVMException;
 import com.jvminsight.jvmprofiler.reporter.Reporter;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 import java.lang.management.ManagementFactory;
 import java.lang.management.ThreadMXBean;
@@ -20,7 +19,6 @@ import java.util.Map;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: JVM线程分析器，包括总线程数、峰值线程数、实时/活动线程数和新线程数。
  **/
-@Slf4j
 @Data
 public class ThreadInfoProfiler extends ProfilerComm implements Profiler{
     /**

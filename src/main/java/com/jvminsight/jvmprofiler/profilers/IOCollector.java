@@ -21,7 +21,6 @@ import java.util.*;
  **/
 
 @Data
-@Slf4j
 public class IOCollector {
     /**
      * 存储大小字节数
@@ -88,7 +87,7 @@ public class IOCollector {
             }
             return result;
         }catch (Exception e){
-            log.warn("Failed to read file " + filePath, e);
+            System.out.println("Failed to read file " + filePath + e);
             return Collections.emptyMap();
         }
     }
@@ -107,7 +106,7 @@ public class IOCollector {
             }
             return result;
         } catch (Throwable ex) {
-            log.warn("Failed to read file " + filePath, ex);
+            System.out.println("Failed to read file " + filePath + ex);
             return Collections.emptyList();
         }
     }
@@ -160,7 +159,7 @@ public class IOCollector {
             String cmdline = new String(Files.readAllBytes(Paths.get(file.getPath())));
             return cmdline.replace((char)0, ' ');
         } catch (IOException e) {
-            log.warn("Failed to read file " + PROC_SELF_CMDLINE_FILE, e);
+            System.out.println("Failed to read file " + PROC_SELF_CMDLINE_FILE + e);
             return null;
         }
     }

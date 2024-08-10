@@ -14,7 +14,6 @@ import java.lang.reflect.Constructor;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 反射工具
  **/
-@Slf4j
 public class ReflectionUtils {
 
     public static <T> Constructor<T> getConstructor(String implementClass, Class<T> interfaceClass){

@@ -9,8 +9,6 @@ import com.jvminsight.jvmprofiler.transformer.ClassAndMethodProfilerStaticProxy;
 import com.jvminsight.jvmprofiler.transformer.JavaAgentFileTransformer;
 import com.jvminsight.jvmprofiler.profilers.*;
 import com.jvminsight.jvmprofiler.utils.*;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.StringUtils;
 
 import java.lang.instrument.Instrumentation;
 import java.util.*;
@@ -27,7 +25,6 @@ import java.util.stream.Collectors;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 根据参数来获得所对应的对象，创建Profiler，启动Profiler
  **/
-@Slf4j
 public class AgentImpl {
 
     public static final String VERSION = "1.0.0";
@@ -39,7 +36,7 @@ public class AgentImpl {
     public void run(Arguments arguments, Instrumentation instrumentation, Collection<AutoCloseable> objectsToCloseOnShutdown){
 
         if(arguments.isNoop()){
-            log.info("Agent noop is true, do not run anything");
+            System.out.println("Agent noop is true, do not run anything");
             return;
         }
 
@@ -51,7 +48,7 @@ public class AgentImpl {
 
         String appIdVariable = arguments.getAppid();
 
-        if(!StringUtils.isEmpty(appIdVariable)){
+        if(appIdVariable != null){
             appId = System.getenv(appIdVariable);
         }
         /**
@@ -88,9 +85,9 @@ public class AgentImpl {
             reloadClasses.forEach(clazz -> {
                 try{
                     instrumentation.retransformClasses(Class.forName(clazz));
-                    log.info("Reload class [" + clazz + "] success");
+                    System.out.println("Reload class [" + clazz + "] success");
                 }catch (Exception e){
-                    log.error("Reload class [" + clazz + "] failed", e);
+                    System.out.println("Reload class [" + clazz + "] failed" + e.toString());
                 }
             });
         }
@@ -213,7 +210,7 @@ public class AgentImpl {
      */
     public ProfilerGroup startProfilers(Collection<Profiler> profilers){
         if(started){
-            log.warn("Profilers already started, do not start it again");
+            System.out.println("Profilers already started, do not start it again");
             return new ProfilerGroup(new ArrayList<>(), new ArrayList<>());
         }
 
@@ -226,18 +223,19 @@ public class AgentImpl {
             } else if (profiler.getIntervalMillis() > 0) {
                 periodicProfilers.add(profiler);
             } else {
-                log.info(String.format("Ignored profiler %s due to its invalid interval %s", profiler, profiler.getIntervalMillis()));
+                System.out.println(String.format("Ignored profiler %s due to its invalid interval %s", profiler, profiler.getIntervalMillis()));
             }
         }
+        System.out.println(oneTimeProfilers.size() + " " + periodicProfilers.size());
         /**
          * 立即启动解析器
          */
         for(Profiler profiler : oneTimeProfilers){
             try {
                 profiler.profile();
-                log.info("Finished one time profiler: " + profiler);
+                System.out.println("Finished one time profiler: " + profiler);
             } catch (Exception ex) {
-                log.warn("Failed to run one time profiler: " + profiler, ex);
+                System.out.println("Failed to run one time profiler: " + profiler + ex.toString());
             }
         }
 
@@ -247,16 +245,16 @@ public class AgentImpl {
         for (Profiler profiler : periodicProfilers) {
             try {
                 profiler.profile();
-                log.info("Ran periodic profiler (first run): " + profiler);
+                System.out.println("Ran periodic profiler (first run): " + profiler);
             } catch (Throwable ex) {
-                log.warn("Failed to run periodic profiler (first run): " + profiler, ex);
+                System.out.println("Failed to run periodic profiler (first run): " + profiler + ex.toString());
             }
         }
 
         /**
          * 按计划启动
          */
-
+        scheduleProfilers(periodicProfilers);
         started = true;
         return new ProfilerGroup(oneTimeProfilers, periodicProfilers);
 
@@ -275,7 +273,7 @@ public class AgentImpl {
 
             ProfilerRunner worker = new ProfilerRunner(profiler);
             scheduledExecutorService.scheduleAtFixedRate(worker, 0, profiler.getIntervalMillis(), TimeUnit.MILLISECONDS);
-            log.info(String.format("Scheduled profiler %s with interval %s millis", profiler, profiler.getIntervalMillis()));
+            System.out.println(String.format("Scheduled profiler %s with interval %s millis", profiler, profiler.getIntervalMillis()));
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.jvminsight.jvmprofiler.utils;
 
 import com.jvminsight.jvmprofiler.profilers.Profiler;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -13,7 +12,6 @@ import java.util.concurrent.atomic.AtomicLong;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
-@Slf4j
 public class ProfilerRunner implements Runnable{
     private static final int MAX_ERROR_COUNT_TO_LOG = 100;
 
@@ -31,7 +29,7 @@ public class ProfilerRunner implements Runnable{
         } catch (Throwable e) {
             long errorCountValue = errorCounter.incrementAndGet();
             if (errorCountValue <= MAX_ERROR_COUNT_TO_LOG) {
-                log.warn("Failed to run profile: " + profiler, e);
+                System.out.println("Failed to run profile: " + profiler + e);
             } else {
                 e.printStackTrace();
             }

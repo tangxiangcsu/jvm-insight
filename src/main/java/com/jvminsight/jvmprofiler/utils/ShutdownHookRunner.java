@@ -17,7 +17,6 @@ import java.util.List;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 关闭解析器的线程
  **/
-@Slf4j
 public class ShutdownHookRunner implements Runnable{
     private List<Profiler> profilers;
     private List<Reporter> reporters;
@@ -30,24 +29,24 @@ public class ShutdownHookRunner implements Runnable{
 
     @Override
     public void run() {
-        log.info("stated to shutdown java agent");
+        System.out.println("stated to shutdown java agent");
         for (Profiler profiler : profilers) {
             try {
-                log.info("Running periodic profiler (last run): " + profiler);
+                System.out.println("Running periodic profiler (last run): " + profiler);
                 profiler.profile();
-                log.info("Ran periodic profiler (last run): " + profiler);
+                System.out.println("Ran periodic profiler (last run): " + profiler);
             } catch (Exception ex) {
-                log.warn("Failed to run periodic profiler (last run): " + profiler, ex);
+                System.out.println("Failed to run periodic profiler (last run): " + profiler + ex);
             }
         }
 
         for (Reporter r : reporters) {
             try {
-                log.info("Closing reporter " + r);
+                System.out.println("Closing reporter " + r);
                 r.close();
-                log.info("Closed reporter " + r);
+                System.out.println("Closed reporter " + r);
             } catch (Exception ex) {
-                log.warn("Failed to close reporter " + r + ", " + new Date() + ", " + System.currentTimeMillis(), ex);
+                System.out.println("Failed to close reporter " + r + ", " + new Date() + ", " + System.currentTimeMillis() + ex);
             }
         }
 
@@ -55,11 +54,11 @@ public class ShutdownHookRunner implements Runnable{
             // Do not use logger.warn here because the logger may depend on error log reporter which will be already closed here.
             // So we use logShutdownMessage (System.out.println) to print out logs.
             try {
-                log.info("Closing object " + closeable);
+                System.out.println("Closing object " + closeable);
                 closeable.close();
-                log.info("Closed object " + closeable );
+                System.out.println("Closed object " + closeable );
             } catch (Exception ex) {
-                log.info("Failed to close object " + closeable);
+                System.out.println("Failed to close object " + closeable);
                 ex.printStackTrace();
             }
         }

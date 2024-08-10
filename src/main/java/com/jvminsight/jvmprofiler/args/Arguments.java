@@ -1,6 +1,7 @@
 package com.jvminsight.jvmprofiler.args;
 
 import cn.hutool.json.JSONUtil;
+import com.jvminsight.jvmprofiler.config.EmptyConfigProvider;
 import com.jvminsight.jvmprofiler.reporter.ConsoleOutputReporter;
 import com.jvminsight.jvmprofiler.utils.ReflectionUtils;
 import com.jvminsight.jvmprofiler.common.ErrorCode;
@@ -9,7 +10,6 @@ import com.jvminsight.jvmprofiler.dto.ClassMethodArgument;
 import com.jvminsight.jvmprofiler.exception.JVMException;
 import com.jvminsight.jvmprofiler.reporter.Reporter;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ import static com.jvminsight.jvmprofiler.args.ArgumentConstants.*;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 指定命令提供哪些参数
  **/
-@Slf4j
+
 @Data
 public class Arguments {
     /**
@@ -136,30 +136,30 @@ public class Arguments {
         String argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_NOOP);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             noop = Boolean.parseBoolean(argValue);
-            log.info("Got argument value for noop: " + noop);
+            System.out.println("Got argument value for noop: " + noop);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_REPORTER);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             reporterConstructor = ReflectionUtils.getConstructor(argValue, Reporter.class);
-            log.info("Got argument value for reporter: " + argValue);
+            System.out.println("Got argument value for reporter: " + argValue);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_CONFIG_PROVIDER);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             configProvierConstructor = ReflectionUtils.getConstructor(argValue, ConfigProvider.class);
-            log.info("Got argument value for configProvider: " + argValue);
+            System.out.println("Got argument value for configProvider: " + argValue);
         }
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_CONFIG_FILE);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             configFile = argValue;
-            log.info("Got argument value for configFile: " + configFile);
+            System.out.println("Got argument value for configFile: " + configFile);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_METRIC_INTERVAL);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             metricInteval = Long.parseLong(argValue);
-            log.info("Got argument value for metricInterval: " + metricInteval);
+            System.out.println("Got argument value for metricInterval: " + metricInteval);
         }
 
         if (metricInteval < MIN_INTERVAL_MILLIS) {
@@ -169,7 +169,7 @@ public class Arguments {
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_SAMPLE_INTERVAL);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             sampleInterval = Long.parseLong(argValue);
-            log.info("Got argument value for sampleInterval: " + sampleInterval);
+            System.out.println("Got argument value for sampleInterval: " + sampleInterval);
         }
 
         if (sampleInterval != 0 && sampleInterval < MIN_INTERVAL_MILLIS) {
@@ -179,42 +179,59 @@ public class Arguments {
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_TAG);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             tag = argValue;
-            log.info("Got argument value for tag: " + tag);
+            System.out.println("Got argument value for tag: " + tag);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_CLUSTER);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             cluster = argValue;
-            log.info("Got argument value for cluster: " + cluster);
+            System.out.println("Got argument value for cluster: " + cluster);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_APP_ID_VARIABLE);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             appid = argValue;
-            log.info("Got argument value for appIdVariable: " + appid);
+            System.out.println("Got argument value for appIdVariable: " + appid);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_APP_ID_REGEX);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             appIdReges = argValue;
-            log.info("Got argument value for appIdRegex: " + appIdReges);
+            System.out.println("Got argument value for appIdRegex: " + appIdReges);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_THREAD_PROFILING);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             threadProfiler = Boolean.parseBoolean(argValue);
-            log.info("Got argument value for threadProfiling: " + threadProfiler);
+            System.out.println("Got argument value for threadProfiling: " + threadProfiler);
         }
 
-        List<String> argsValues = ArgumentUtils.getArgumentMultiValues(parsedArgs, ARG_DURATION_PROFILING);
-        if(!argsValues.isEmpty()){
+        List<String> argValues = ArgumentUtils.getArgumentMultiValues(parsedArgs, ARG_DURATION_PROFILING);
+        if (!argValues.isEmpty()) {
             durationProfiler.clear();
+            for (String str : argValues) {
+                int index = str.lastIndexOf(".");
+                if (index <= 0 || index + 1 >= str.length()) {
+                    throw new IllegalArgumentException("Invalid argument value: " + str);
+                }
+                String className = str.substring(0, index);
+                String methodName = str.substring(index + 1);
+                ClassAndMethod classAndMethod = new ClassAndMethod(className, methodName);
+                durationProfiler.add(classAndMethod);
+                System.out.println("Got argument value for durationProfiling: " + classAndMethod);
+            }
+        }
+
+        List<String> argsValues = ArgumentUtils.getArgumentMultiValues(parsedArgs, ARG_ARGUMENT_PROFILING);
+        if(!argsValues.isEmpty()){
+            argumentProfiling.clear();
             for(String str : argsValues){
                 int index = str.lastIndexOf(".");
                 if(index<=0 || index + 1 >= str.length()){
                     throw new JVMException(ErrorCode.SYSTEM_ERROR.getCode(), "Invalid argument value: " + str);
                 }
                 String classMethod = str.substring(0,index);
+                //System.out.println("============= classMethodName " + classMethod+ " index + 1" + index);
                 int argumentIndex = Integer.parseInt(str.substring(index + 1, str.length()));
 
                 index = classMethod.lastIndexOf(".");
@@ -227,21 +244,27 @@ public class Arguments {
 
                 ClassMethodArgument classMethodArgument = new ClassMethodArgument(className, methodName, argumentIndex);
                 argumentProfiling.add(classMethodArgument);
-                log.info("Got argument value for argumentProfiling: " + classMethodArgument);
+                System.out.println("Got argument value for argumentProfiling: " + classMethodArgument);
             }
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_IO_PROFILING);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             ioProfiler = Boolean.parseBoolean(argValue);
-            log.info("Got argument value for ioProfiling: " + ioProfiler);
+            System.out.println("Got argument value for ioProfiling: " + ioProfiler);
         }
 
     }
 
     public void runConfigProvider() {
         try {
-            ConfigProvider configProvider = configProvierConstructor.newInstance();
+            ConfigProvider configProvider;
+            if(configProvierConstructor ==null){
+                configProvider = new EmptyConfigProvider();
+            }
+            else{
+                configProvider = configProvierConstructor.newInstance();
+            }
             if (configProvider != null) {
                 Map<String, Map<String, List<String>>> extraConfig = configProvider.getConfig();
 
@@ -249,7 +272,7 @@ public class Arguments {
                 Map<String, List<String>> rootConfig = extraConfig.get("");
                 if (rootConfig != null) {
                     updateArguments(rootConfig);
-                    log.info("Updated arguments based on config: " + JSONUtil.toJsonStr(rootConfig));
+                    System.out.println("Updated arguments based on config: " + JSONUtil.toJsonStr(rootConfig));
                 }
 
                 // Get tag level config (use tag value to find config values in the config map)
@@ -257,12 +280,12 @@ public class Arguments {
                     Map<String, List<String>> overrideConfig = extraConfig.get(getTag());
                     if (overrideConfig != null) {
                         updateArguments(overrideConfig);
-                        log.info("Updated arguments based on config override: " + JSONUtil.toJsonStr(overrideConfig));
+                        System.out.println("Updated arguments based on config override: " + JSONUtil.toJsonStr(overrideConfig));
                     }
                 }
             }
         } catch (Throwable ex) {
-            log.warn("Failed to update arguments with config provider", ex);
+            System.out.println("Failed to update arguments with config provider" + ex.toString());
         }
     }
 
@@ -279,5 +302,4 @@ public class Arguments {
             }
         }
     }
-
 }

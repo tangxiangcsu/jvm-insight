@@ -7,7 +7,6 @@ import com.jvminsight.jvmprofiler.utils.ClassMethodArgumentFilter;
 import javassist.*;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -24,7 +23,6 @@ import java.util.List;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION:
  **/
-@Slf4j
 @AllArgsConstructor
 @NoArgsConstructor
 public class JavaAgentFileTransformer implements ClassFileTransformer {
@@ -40,12 +38,12 @@ public class JavaAgentFileTransformer implements ClassFileTransformer {
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         try{
             if(className == null ||className.isEmpty()){
-                log.error("empty class name");
+                System.out.println("empty class name");
                 return null;
             }
             return transformeImpl(loader, className, classfileBuffer);
         }catch (Exception e){
-            log.warn("Failed to transform class" + className, e);
+            System.out.println("Failed to transform class" + className + e);
             return classfileBuffer;
         }
     }
@@ -54,13 +52,13 @@ public class JavaAgentFileTransformer implements ClassFileTransformer {
             return null;
         }
         String normalizedClassName = className.replaceAll("/", ".");
-        log.info("className transform to: " + normalizedClassName);
+        System.out.println("className transform to: " + normalizedClassName);
         // 过滤掉未见听的类
         if(!durationProfilingFilter.matchClass(className)&&!argumentProfilingFilter.matchClass(className)){
             return null;
         }
         byte[] byteCode;
-        log.info("start transforming class : "+ className);
+        System.out.println("start transforming class : "+ className);
         try{
             ClassPool classPool = new ClassPool();
             classPool.appendClassPath(new LoaderClassPath(loader));
@@ -85,7 +83,7 @@ public class JavaAgentFileTransformer implements ClassFileTransformer {
     }
     private void transformMethod(String normalizedClassName, CtMethod method, boolean enableClassAndMethodProfiler, List<Integer> enableArgumentProfiler) {
         if(method.isEmpty()){
-            log.info("Ignored empty class method : "+ method.getLongName());
+            System.out.println("Ignored empty class method : "+ method.getLongName());
             return;
         }
 
@@ -140,7 +138,7 @@ public class JavaAgentFileTransformer implements ClassFileTransformer {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            log.warn("Failed to transform class method: " + method.getLongName(), e);
+            System.out.println("Failed to transform class method: " + method.getLongName() + e);
         }
 
     }

@@ -3,7 +3,6 @@ package com.jvminsight.jvmprofiler.profilers;
 import com.jvminsight.jvmprofiler.constants.ProfilerConstants;
 import com.jvminsight.jvmprofiler.reporter.Reporter;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 import javax.management.Attribute;
 import javax.management.AttributeList;
@@ -23,7 +22,6 @@ import java.util.Map;
  * @PROJECT_NAME: jvm-insight
  * @DESCRIPTION: 采集核心方法都是由ManagementFactory提供的接口
  **/
-@Slf4j
 @Data
 public class CpuAndMemoryProfiler extends ProfilerComm implements Profiler {
     /**
@@ -84,24 +82,24 @@ public class CpuAndMemoryProfiler extends ProfilerComm implements Profiler {
             mBeanServer = ManagementFactory.getPlatformMBeanServer();
             objectName = ObjectName.getInstance("java.lang:type=OperatingSystem");
         }catch (Exception e){
-            log.error("Load mBeanServer and objectName to throw Exception ",e);
+            System.out.println("Load mBeanServer and objectName to throw Exception " + e.toString());
         }
         try{
             memoryMXBean = ManagementFactory.getMemoryMXBean();
         }catch (Exception e){
-            log.error("Load memoryMXBean throw Exception ",e);
+            System.out.println("Load memoryMXBean throw Exception "+e);
         }
 
         try{
             gcMXBeans =ManagementFactory.getGarbageCollectorMXBeans();
         }catch (Exception e){
-            log.error("Load GarbageCollectorMXBeans throw Exception ",e);
+            System.out.println("Load GarbageCollectorMXBeans throw Exception "+e);
         }
 
         try{
             memoryPoolMXBeans = ManagementFactory.getMemoryPoolMXBeans();
         }catch (Exception e){
-            log.error("Load MemoryPoolMXBean throw Exception ",e);
+            System.out.println("Load MemoryPoolMXBean throw Exception "+ e);
         }
     }
 
@@ -115,12 +113,12 @@ public class CpuAndMemoryProfiler extends ProfilerComm implements Profiler {
             String[] names = new String[]{ATTRIBUTE_NAME_ProcessCpuLoad, ATTRIBUTE_NAME_SystemCpuLoad, ATTRIBUTE_NAME_ProcessCpuTime};
             AttributeList list = mBeanServer.getAttributes(objectName, names);
             if (list.size() != names.length) {
-                log.warn("Failed to get all attributes");
+                System.out.println("Failed to get all attributes");
                 return new AttributeList();
             }
             return list;
         } catch (Throwable ex) {
-            log.warn("Failed to get CPU MBean attributes", ex);
+            System.out.println("Failed to get CPU MBean attributes" + ex);
             return null;
         }
     }

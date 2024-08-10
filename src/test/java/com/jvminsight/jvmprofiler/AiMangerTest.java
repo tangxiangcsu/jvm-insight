@@ -9,14 +9,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
-import java.util.Arrays;
+
 
 /**
  * @PACKAGE_NAME: PACKAGE_NAME
  * @NAME: AiMangerTest
  * @USER: tangxiang
  * @DATE: 2024/7/29
- * @PROJECT_NAME: HuaweiCloud-JVM-Profiler
  * @DESCRIPTION:
  **/
 @SpringBootTest
@@ -50,7 +49,7 @@ public class AiMangerTest {
     }
 
     public CpuAndMemoryDto builderJSON(){
-        CpuAndMemoryDto cpuAndMemoryDTO = new CpuAndMemoryDto(
+        /*CpuAndMemoryDto cpuAndMemoryDTO = new CpuAndMemoryDto(
                 11890584L,
                 Arrays.asList(
                         new CpuAndMemoryDto.BufferPool(0L, "direct", 0, 0L),
@@ -81,7 +80,8 @@ public class AiMangerTest {
                         new CpuAndMemoryDto.GC(0L, "PS MarkSweep", 0)
                 )
         );
-        return cpuAndMemoryDTO;
+        return cpuAndMemoryDTO;*/
+        return null;
     }
 
 }

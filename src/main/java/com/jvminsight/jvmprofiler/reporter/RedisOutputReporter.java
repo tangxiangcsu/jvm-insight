@@ -14,7 +14,6 @@ import java.util.Map;
  * @DESCRIPTION:
  **/
 
-@Slf4j
 public class RedisOutputReporter implements Reporter{
     @Override
     public void updateArguments(Map<String, List<String>> parsedArgs) {

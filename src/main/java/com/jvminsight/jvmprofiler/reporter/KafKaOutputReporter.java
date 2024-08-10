@@ -5,7 +5,6 @@ import com.jvminsight.jvmprofiler.common.ErrorCode;
 import com.jvminsight.jvmprofiler.exception.JVMException;
 import com.jvminsight.jvmprofiler.utils.ArgumentUtils;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -27,7 +26,6 @@ import java.util.concurrent.Future;
  * @DESCRIPTION:
  **/
 
-@Slf4j
 @Data
 public class KafKaOutputReporter implements Reporter{
     public final static String ARG_BROKER_LIST = "brokerList";
@@ -63,19 +61,19 @@ public class KafKaOutputReporter implements Reporter{
         String argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_BROKER_LIST);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             setBrokerList(argValue);
-            log.info("Got argument value for brokerList: " + brokerList);
+            System.out.println("Got argument value for brokerList: " + brokerList);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_SYNC_MODE);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             setSyncMode(Boolean.parseBoolean(argValue));
-            log.info("Got argument value for syncMode: " + syncMode);
+            System.out.println("Got argument value for syncMode: " + syncMode);
         }
 
         argValue = ArgumentUtils.getArgumentSingleValue(parsedArgs, ARG_TOPIC_PREFIX);
         if (ArgumentUtils.needToUpdateArg(argValue)) {
             setTopicPrefix(argValue);
-            log.info("Got argument value for topicPrefix: " + topicPrefix);
+            System.out.println("Got argument value for topicPrefix: " + topicPrefix);
         }
 
     }
