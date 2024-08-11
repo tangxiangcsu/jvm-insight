@@ -92,7 +92,7 @@ public class AgentImpl {
             });
         }
         List<Profiler> profilers = createProfilersForArgument(reporter, arguments, processUUid, appId);
-
+        //System.out.println(" test ====== " + profilers.get(0).getIntervalMillis());
         ProfilerGroup profilerGroup = startProfilers(profilers);
 
         Thread shutdownHook = new Thread(new ShutdownHookRunner(profilerGroup.getPeriodicProfilers(), Arrays.asList(reporter), objectsToCloseOnShutdown));
@@ -111,7 +111,6 @@ public class AgentImpl {
         String tag = arguments.getTag();
         String cluster = arguments.getCluster();
         long metricInterval = arguments.getMetricInteval();
-
         List<Profiler> profilers = new ArrayList<>();
         CpuAndMemoryProfiler cpuAndMemoryProfiler = new CpuAndMemoryProfiler(reporter);
         cpuAndMemoryProfiler.setTag(tag);

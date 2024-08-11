@@ -58,12 +58,12 @@ public class ThreadInfoProfiler extends ProfilerComm implements Profiler{
 
     @Override
     public long getIntervalMillis() {
-        return 0;
+        return this.intervalMills;
     }
 
     @Override
     public void setReporter(Reporter reporter) {
-
+        this.reporter = reporter;
     }
 
     @Override

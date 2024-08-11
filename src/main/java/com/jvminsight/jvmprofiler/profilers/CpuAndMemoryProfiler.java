@@ -124,12 +124,12 @@ public class CpuAndMemoryProfiler extends ProfilerComm implements Profiler {
     }
     @Override
     public long getIntervalMillis() {
-        return 0;
+        return this.intervalMillis;
     }
 
     @Override
     public void setReporter(Reporter reporter) {
-
+        this.reporter = reporter;
     }
 
     /**
