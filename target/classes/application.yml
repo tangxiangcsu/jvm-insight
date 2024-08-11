@@ -1,31 +1,3 @@
 ai:
   apiKey: ab525f5a50be344d1e9d397da79f3070.rCdPOV13gJlBA7Yr
 
-spring:
-  shardingsphere:
-    database:
-      name: ai_jvm_profiler
-      ai_jvm_profiler:
-        type: com.zaxxer.hikari.HikariDataSource
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        jdbc-url: jdbc:mysql://localhost:3306/yudada
-        username: root
-        password: 123456
-    rules:
-      sharding:
-        # 分片算法配置
-        sharding-algorithms:
-          # 自定义分片规则
-          jvm-profiler-inline:
-            type: INLINE
-            props:
-              algorithm-expression: jvm_profiler_$->{appId % 2}
-        tables:
-          jvm_profiler:
-            actual-data-nodes: ai_jvm_profiler.jvm_profiler_$->{0..1}
-              # 分表策略
-              table-strategy:
-                standard:
-                  sharding-column: appId
-                  sharding-algorithm-name: jvm-profiler-inline
-

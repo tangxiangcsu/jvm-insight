@@ -4,7 +4,7 @@ ai:
 spring:
   shardingsphere:
     database:
-      name: ai_jvm_profiler
+      name: jvm_insight
       ai_jvm_profiler:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
@@ -22,7 +22,7 @@ spring:
               algorithm-expression: jvm_profiler_$->{appId % 2}
         tables:
           jvm_profiler:
-            actual-data-nodes: ai_jvm_profiler.jvm_profiler_$->{0..1}
+            actual-data-nodes: jvm_insight.jvm_profiler_$->{0..1}
               # 分表策略
               table-strategy:
                 standard:

@@ -36,14 +36,16 @@ public class CpuAndMemoryDto {
     private List<GcMetric> gc;
     private List<MemoryPoolMetric> memoryPools;
     private List<BufferPoolMetric> bufferPools;
-
+    @NoArgsConstructor
+    @AllArgsConstructor
     @Data
     public static class GcMetric {
         private String name;
         private Long collectionCount;
         private Long collectionTime;
     }
-
+    @NoArgsConstructor
+    @AllArgsConstructor
     @Data
     public static class MemoryPoolMetric {
         private String name;
@@ -55,7 +57,8 @@ public class CpuAndMemoryDto {
         private Long peakUsageMax;
         private Long peakUsageUsed;
     }
-
+    @NoArgsConstructor
+    @AllArgsConstructor
     @Data
     public static class BufferPoolMetric {
         private String name;

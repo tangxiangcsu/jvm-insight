@@ -1,6 +1,8 @@
 package com.jvminsight.jvmprofiler;
 
 import cn.hutool.json.JSONUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jvminsight.jvmprofiler.dto.CpuAndMemoryDto;
 import com.jvminsight.jvmprofiler.ai.AiManager;
 import com.jvminsight.jvmprofiler.ai.JvmCpuMemoryEntry;
@@ -9,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 
 
 /**
@@ -24,7 +27,7 @@ public class AiMangerTest {
     AiManager aiManager;
 
     @Test
-    public void test_AiManger(){
+    public void test_AiManger() throws JsonProcessingException {
         /**
          * 封装Prompt
          */
@@ -48,40 +51,12 @@ public class AiMangerTest {
         return JVMMessage.toString();
     }
 
-    public CpuAndMemoryDto builderJSON(){
-        /*CpuAndMemoryDto cpuAndMemoryDTO = new CpuAndMemoryDto(
-                11890584L,
-                Arrays.asList(
-                        new CpuAndMemoryDto.BufferPool(0L, "direct", 0, 0L),
-                        new CpuAndMemoryDto.BufferPool(0L, "mapped", 0, 0L)
-                ),
-                24330736L,
-                1515627003374L,
-                13565952L,
-                257425408L,
-                Arrays.asList(
-                        new CpuAndMemoryDto.MemoryPool(251658240L, 251658240L, 1194496L, "Code Cache", 2555904L, 1173504L, "Non-heap memory", 2555904L),
-                        new CpuAndMemoryDto.MemoryPool(-1L, -1L, 9622920L, "Metaspace", 9830400L, 9622920L, "Non-heap memory", 9830400L),
-                        new CpuAndMemoryDto.MemoryPool(1073741824L, 1073741824L, 1094160L, "Compressed Class Space", 1179648L, 1094160L, "Non-heap memory", 1179648L),
-                        new CpuAndMemoryDto.MemoryPool(1409286144L, 1409286144L, 24330736L, "PS Eden Space", 67108864L, 24330736L, "Heap memory", 67108864L),
-                        new CpuAndMemoryDto.MemoryPool(11010048L, 11010048L, 0L, "PS Survivor Space", 11010048L, 0L, "Heap memory", 11010048L),
-                        new CpuAndMemoryDto.MemoryPool(2863661056L, 2863661056L, 0L, "PS Old Gen", 179306496L, 0L, "Heap memory", 179306496L)
-                ),
-                0.0008024004394748531,
-                0.23138430784607697,
-                496918000L,
-                null,
-                "24103@machine01",
-                "machine01",
-                "3c2ec835-749d-45ea-a7ec-e4b9fe17c23a",
-                "mytag",
-                Arrays.asList(
-                        new CpuAndMemoryDto.GC(0L, "PS Scavenge", 0),
-                        new CpuAndMemoryDto.GC(0L, "PS MarkSweep", 0)
-                )
-        );
-        return cpuAndMemoryDTO;*/
-        return null;
+    public CpuAndMemoryDto builderJSON() throws JsonProcessingException {
+        String json = "{\"heapMemoryMax\":2.109734912E9,\"nonHeapMemoryTotalUsed\":8130568.0,\"bufferPools\":[{\"totalCapacity\":0,\"name\":\"mapped\",\"count\":0,\"memoryUsed\":0},{\"totalCapacity\":0,\"name\":\"direct\",\"count\":0,\"memoryUsed\":0},{\"totalCapacity\":0,\"name\":\"mapped - \\u0027non-volatile memory\\u0027\",\"count\":0,\"memoryUsed\":0}],\"heapMemoryTotalUsed\":1.9922944E7,\"epochMillis\":1723376934076,\"nonHeapMemoryCommitted\":1.3238272E7,\"heapMemoryCommitted\":1.32120576E8,\"memoryPools\":[{\"peakUsageMax\":5898240,\"usageMax\":5898240,\"peakUsageUsed\":1202816,\"name\":\"CodeHeap \\u0027non-nmethods\\u0027\",\"peakUsageCommitted\":2555904,\"usageUsed\":1186560,\"type\":\"Non-heap memory\",\"usageCommitted\":2555904},{\"peakUsageMax\":-1,\"usageMax\":-1,\"peakUsageUsed\":4699696,\"name\":\"Metaspace\",\"peakUsageCommitted\":4915200,\"usageUsed\":4699696,\"type\":\"Non-heap memory\",\"usageCommitted\":4915200},{\"peakUsageMax\":122880000,\"usageMax\":122880000,\"peakUsageUsed\":1429248,\"name\":\"CodeHeap \\u0027profiled nmethods\\u0027\",\"peakUsageCommitted\":2555904,\"usageUsed\":1429248,\"type\":\"Non-heap memory\",\"usageCommitted\":2555904},{\"peakUsageMax\":1073741824,\"usageMax\":1073741824,\"peakUsageUsed\":523608,\"name\":\"Compressed Class Space\",\"peakUsageCommitted\":655360,\"usageUsed\":523608,\"type\":\"Non-heap memory\",\"usageCommitted\":655360},{\"peakUsageMax\":-1,\"usageMax\":-1,\"peakUsageUsed\":11534336,\"name\":\"G1 Eden Space\",\"peakUsageCommitted\":26214400,\"usageUsed\":11534336,\"type\":\"Heap memory\",\"usageCommitted\":26214400},{\"peakUsageMax\":2109734912,\"usageMax\":2109734912,\"peakUsageUsed\":8388608,\"name\":\"G1 Old Gen\",\"peakUsageCommitted\":105906176,\"usageUsed\":8388608,\"type\":\"Heap memory\",\"usageCommitted\":105906176},{\"peakUsageMax\":-1,\"usageMax\":-1,\"peakUsageUsed\":0,\"name\":\"G1 Survivor Space\",\"peakUsageCommitted\":0,\"usageUsed\":0,\"type\":\"Heap memory\",\"usageCommitted\":0},{\"peakUsageMax\":122880000,\"usageMax\":122880000,\"peakUsageUsed\":291456,\"name\":\"CodeHeap \\u0027non-profiled nmethods\\u0027\",\"peakUsageCommitted\":2555904,\"usageUsed\":291456,\"type\":\"Non-heap memory\",\"usageCommitted\":2555904}],\"processCpuLoad\":0.08335573935607224,\"systemCpuLoad\":0.1235764904981842,\"processCpuTime\":328125000,\"processUuid\":\"abb532fb-68ef-4af4-9ef2-fe811fa34c6b\",\"nonHeapMemoryMax\":-1.0,\"tag\":\"mytag\",\"gc\":[{\"collectionTime\":0,\"name\":\"G1 Young Generation\",\"collectionCount\":0},{\"collectionTime\":0,\"name\":\"G1 Old Generation\",\"collectionCount\":0}]}";
+
+        // 将 JSON 字符串转换为 CpuAndMemoryDto 对象
+        CpuAndMemoryDto dto = JSONUtil.toBean(json, CpuAndMemoryDto.class);
+        return dto;
     }
 
 }
