@@ -283,8 +283,5 @@ java -javaagent:target/jvm-insight-1.0-SNAPSHOT.jar=reporter=com.jvminsight.jvmp
   }
 ]
 ```
-
-📕
-🔬 🚀 
 ## 🤗 email
 如果你有任何问题，请尽管联系我 xingtang@csu.edu.cn
